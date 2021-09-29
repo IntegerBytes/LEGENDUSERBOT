@@ -7,10 +7,11 @@ from telethon import TelegramClient
 from var import Var
 from userbot.Config import Config
 from telethon.tl.functions.channels import InviteToChannelRequest, JoinChannelRequest
-from userbot.utils import load_module, start_assistant
+from userbot.utils import load_module, start_assistant, load_addons
 from userbot import LOAD_PLUG, LOGS, LEGENDversion
 from pathlib import Path
 import asyncio
+import glob
 import telethon.utils
 os.system("pip install -U telethon")
 
@@ -49,28 +50,57 @@ else:
         print("Startup Completed")
     else:
         bot.start()
+print("Loading Modules / Plugins")
 
 
-import glob
-path = 'userbot/plugins/*.py'
-files = glob.glob(path)
-for name in files:
+async def module():
+  import glob
+  path = 'userbot/plugins/*.py'
+  files = glob.glob(path)
+  for name in files:
     with open(name) as f:
-        path1 = Path(f.name)
-        shortname = path1.stem
-        load_module(shortname.replace(".py", ""))
+      path1 = Path(f.name)
+      shortname = path1.stem
+      load_module(shortname.replace(".py", ""))
 
-if LOAD_ASSISTANT == True:
+async def assistant():
     path = "userbot/plugins/assistant/*.py"
     files = glob.glob(path)
     for name in files:
-        with open(name) as f:
-            path1 = Path(f.name)
-            shortname = path1.stem
-            try:
-                start_assistant(shortname.replace(".py", ""))
-            except Exception as er:
-                print(er)
+      with open(name) as f:
+        path1 = Path(f.name)
+        shortname = path1.stem
+        start_assistant(shortname.replace(".py", ""))
+ADDONS = os.environ.get ("ADDONS", "True")
+addon = os.environ.get("ADDONS") or False                
+async def addons():
+    if addon == "True":
+        extra_repo = "https://github.com/LEGEND-OS/LegendBot-Addons"
+        try:
+            os.system(f"git clone {extra_repo}")  
+        except BaseException:
+            pass
+        import glob
+        LOGS.info("Loading Addons")
+        path = "LegendBot-Addons/*.py"
+        files = glob.glob(path)
+        for name in files:
+            with open(name) as ex:
+                path2 = Path(ex.name)
+                shortname = path2.stem
+                try:
+                    load_addons(shortname.replace(".py", ""))
+                    if not shortname.startswith("__") or shortname.startswith("_"):
+                        LOGS.info(f"[LEGEND-BOT 2.1] - Addons -  Installed - {shortname}")
+                except Exception as e:
+                    LOGS.warning(f"[LEGEND-BOT 2.1] - Addons - ERROR - {shortname}")
+                    LOGS.warning(str(e))
+    else:
+        print("Addons Not Loading")
+
+bot.loop.run_until_complete(module())
+bot.loop.run_until_complete(addons())
+bot.loop.run_until_complete(assistant())
 
 print(f"""『🔱🇱 🇪 🇬 🇪 🇳 🇩 B O T 🔱』➙𖤍࿐ IS ON!!! LEGEND VERSION :- {LEGENDversion}
 TYPE :- " .gpromote @Its_LegendBoy " OR .legend OR .ping CHECK IF I'M ON!
@@ -82,6 +112,8 @@ TYPE :- " .gpromote @Its_LegendBoy " OR .legend OR .ping CHECK IF I'M ON!
 ║┣⪼ ✨ 『🔱🇱 🇪 🇬 🇪 🇳 🇩 🔱』𝐔𝐬𝐞𝐫𝐛𝐨𝐭✨
 ║╰━━━━━━━━━━━━━━━➣
 ╚══════════════════❍⊱""")
+
+
 
 async def legend_is_on():
     try:

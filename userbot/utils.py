@@ -167,6 +167,57 @@ def load_module(shortname):
         sys.modules["userbot.plugins." + shortname] = mod
         LOGS.info("Lêɠêɳ̃dẞø† ~ " + shortname)
 
+def load_addons(shortname):
+    if shortname.startswith("__"):
+        pass
+    elif shortname.endswith("_"):
+        import userbot.utils
+        import sys
+        import importlib
+        from pathlib import Path
+        path = Path(f"LegendBot-Addons/{shortname}.py")
+        name = "LegendBot-Addons.{}".format(shortname)
+        spec = importlib.util.spec_from_file_location(name, path)
+        mod = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(mod)
+        LOGS.info("LegendBot-Addons ~ " + shortname)
+    else:
+        import userbot.utils
+        import sys
+        import importlib
+        from pathlib import Path
+        path = Path(f"LegendBot-Addons/{shortname}.py")
+        name = "LegendBot-Addons.{}".format(shortname)
+        spec = importlib.util.spec_from_file_location(name, path)
+        mod = importlib.util.module_from_spec(spec)
+        mod.bot = bot
+        #mod.LEGEND = LEGEND
+        mod.tgbot = bot.tgbot
+        mod.Var = Var
+        mod.command = command
+        mod.logger = logging.getLogger(shortname)
+        # support for uniborg
+        sys.modules["uniborg.util"] = userbot.utils
+        mod.Config = Config
+        mod.borg = bot
+        mod.LEGENDBOT = bot
+        mod.edit_or_reply = edit_or_reply
+        mod.delete_LEGEND = delete_LEGEND
+        mod.eod = delete_LEGEND
+        mod.admin_cmd = admin_cmd
+        mod.sudo_cmd = sudo_cmd
+        # support for LEGENDBOT originals
+        sys.modules["LEGENDBOT.utils"] = userbot.utils
+        sys.modules["LEGENDBOT"] = userbot
+        # support for paperplaneextended
+        sys.modules["userbot.events"] = userbot.utils
+        spec.loader.exec_module(mod)
+        # for imports
+        sys.modules["LegendBot-Addons." + shortname] = mod
+        LOGS.info("LegendBot-Addons ~ " + shortname)
+
+
+
 
 def remove_plugin(shortname):
     try:

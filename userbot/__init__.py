@@ -7,8 +7,8 @@ from userbot.Config import Config
 from var import Var
 BOTLOG = True
 StartTime = time.time()
-LEGENDversion = "𝚅2.𝙾"
-botversion = "𝚅1.𝙾"
+LEGENDversion = "𝚅2.1"
+botversion = "𝚅2.1"
 
 os.system("pip install --upgrade pip")
 if Var.LEGEND_STRING:
@@ -54,7 +54,7 @@ if bool(ENV):
     else:
         basicConfig(format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
                     level=INFO)
-    LOGS = getLogger(__name__)
+    LOGS = getLogger("[Lêɠêɳ̃dẞø† 2.1]")
 
 try:
     if Config.HEROKU_API_KEY is not None or Config.HEROKU_APP_NAME is not None:
