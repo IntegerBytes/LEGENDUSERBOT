@@ -13,11 +13,11 @@ from userbot import HEROKU_APP, bot
 async def _(event):
     if event.fwd_from:
         return
-    await event.edit("яєϐοοτιиg **[ ░░░ ]** ...\nωαιτ ƒєω мιиυτє⚠️")
-    await event.edit("яєϐοοτιиg **[ █░░ ]** ...\nωαιτ ƒєω мιиυτє☣️")
-    await event.edit("яєϐοοτιиg **[ ██░ ]** ...\nωαιτ ƒєω мιиυτє☢️")
-    await event.edit("яєϐοοτιиg **[ ███ ]** ...\nωαιτ ƒєω мιиυτєѕ☢️")
-    await event.edit("Rєϐοοτє∂ 𝕷𝐞̂𝐠𝐞́𝐧̃𝐝𝕭ø𝖙 V2.1**[ ✔️ ]** ...\nType `.ping` or `.legend` after 5min to check if I am working✔️")
+    await event.edit("Rєϐοοτιиg **[ ░░░ ]** ...\nωαιτ ƒєω мιиυτє⚠️")
+    await event.edit("Rєϐοοτιиg **[ █░░ ]** ...\nωαιτ ƒєω мιиυτє☣️")
+    await event.edit("Rєϐοοτιиg **[ ██░ ]** ...\nωαιτ ƒєω мιиυτє☢️")
+    await event.edit("Rєϐοοτιиg **[ ███ ]** ...\nωαιτ ƒєω мιиυτєѕ☢️")
+    await event.edit("Rєϐοοτє∂ Lêɠêɳ̃dẞø† V2.1**[ ✅ ]** ...\nType `.ping` or `.legend` after 5min to check if I am working✅")
     await bot.disconnect()
     os.execl(sys.executable, sys.executable, *sys.argv)
     quit()
