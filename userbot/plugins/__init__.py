@@ -5,6 +5,7 @@ from userbot.cmdhelp import CmdHelp
 import datetime
 from telethon import version
 from . import *
+
 LEGEND_USER = bot.me.first_name
 Its_LegendBoy = bot.uid
 legend_mention = f"[{LEGEND_USER}](tg://user?id={Its_LegendBoy})"
@@ -13,7 +14,7 @@ LEGEND_logo1 = "./userbot/resources/pics/-4965507108355287505_121.jpg"
 LEGEND_logo2 = "./userbot/resources/pics/-4965507108355287505_121.jpg"
 LEGEND_logo4 = "./userbot/resources/pics/-4965507108355287505_121.jpg"
 LEGEND_logo3 = "./userbot/resources/pics/-4965507108355287505_121.jpg"
-LEGENDversion = "𝚅2.𝙾"
+LEGENDversion = "𝚅2.1"
 
 perf = "[ †hê Lêɠêɳ̃dẞø† ]"
 
@@ -44,6 +45,8 @@ else:
 
 START_TIME = datetime.datetime.now()
 uptime = f"{str(datetime.datetime.now() - START_TIME).split('.')[0]}"
+
+
 my_channel = Config.YOUR_CHANNEL or "Its_LegendBot"
 my_group = Config.YOUR_GROUP or "Legend_Userbot"
 if "@" in my_channel:
