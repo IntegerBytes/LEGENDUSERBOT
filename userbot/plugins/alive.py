@@ -9,6 +9,7 @@ from userbot import ALIVE_NAME, StartTime, LEGENDversion
 from LEGENDBOT.utils import admin_cmd, edit_or_reply, sudo_cmd
 from userbot.cmdhelp import CmdHelp
 from . import *
+from userbot.Config import Config
 async def reply_id(event):
     reply_to_id = None
     if event.sender_id in Config.SUDO_USERS:
@@ -21,8 +22,8 @@ async def reply_id(event):
 DEFAULTUSER = ALIVE_NAME or "✞︎t͛ẞ̸ 𝖑𝖊ɠêɳ̃dẞø✞︎ 🇮🇳"
 LEGEND_IMG = Config.ALIVE_PIC
 CUSTOM_ALIVE_TEXT = Config.ALIVE_MSG or "ℓєgєи∂ Choice 𝖑𝖊ɠêɳ̃dẞø✞︎"
-CUSTOM_YOUR_GROUP =Config.YOUR_GROUP or "@Legend_Userbot"
-
+CUSTOM_YOUR_GROUP = Config.YOUR_GROUP or "@Legend_Userbot"
+ALIVE_EMOJI = Config.ALIVE_EMOJI or "🔥"
 Legend = bot.uid
 
 mention = f"[{DEFAULTUSER}](tg://user?id={Legend})"
@@ -104,11 +105,11 @@ msg = f"""
 **    ♥️ ẞø✞︎ ẞ✞︎α✞︎µѕ ♥️**
 **•⚜️•Øաղ̃ҽ̈r     :** **{mention}**
 
-**•🌹•𝖑𝖊ɠêɳ̃dẞø✞︎ :** {LEGENDversion}
-**•🌹•✞︎ҽ̀lҽ́ƭhøղ  :** {version.__version__}
-**•🌹•Ãbûßê     :**  {abuse_m}
-**•🌹•ßudø      :**  {is_sudo}
-**•🌹•Bøt.      :** {Config.BOY_OR_GIRL}
+**•{ALIVE_EMOJI}•𝖑𝖊ɠêɳ̃dẞø✞︎ :** {LEGENDversion}
+**•{ALIVE_EMOJI}•✞︎ҽ̀lҽ́ƭhøղ  :** {version.__version__}
+**•{ALIVE_EMOJI}•Ãbûßê     :**  {abuse_m}
+**•{ALIVE_EMOJI}•ßudø      :**  {is_sudo}
+**•{ALIVE_EMOJI}•Bøt.      :** {Config.BOY_OR_GIRL}
 """
 botname = Config.BOT_USERNAME
 

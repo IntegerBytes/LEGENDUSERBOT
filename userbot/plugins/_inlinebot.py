@@ -55,12 +55,12 @@ LEGEND_FIRST = (
 alive_txt = """
     **{}**\n
    **♥️ẞø† ẞ†α†µѕ♥️**
-**•⚜️•Øաղ̃ҽ̈r :** {}\n
-**•🌹•Lêɠêɳ̃dẞø† :** {}
-**•🌹•†ҽ̀lҽ́ƭhøղ  :** {}
-**•🌹•Ãbûßê     :** {}
-**•🌹•ßudø      :** {}
-**•🌹•Bø†       :** {}
+**•{}•Øաղ̃ҽ̈r :** {}\n
+**•{}•Lêɠêɳ̃dẞø† :** {}
+**•{}•†ҽ̀lҽ́ƭhøղ  :** {}
+**•{}•Ãbûßê     :** {}
+**•{}•ßudø      :** {}
+**•{}•Bø†       :** {}
 """
 
 def button(page, modules):
@@ -157,11 +157,11 @@ if Config.BOT_USERNAME is not None and tgbot is not None:
             ]
  
         elif event.query.user_id == bot.uid and query == "alive":
-            leg_end = alive_txt.format(Config.ALIVE_MSG, legend_mention, LEGENDversion, version.__version__, abuse_m, is_sudo, Config.BOY_OR_GIRL)
+            leg_end = alive_txt.format(Config.ALIVE_MSG, Config.ALIVE_EMOJI, legend_mention, Config.ALIVE_EMOJI, LEGENDversion, Config.ALIVE_EMOJI, version.__version__, Config.ALIVE_EMOJI, abuse_m, Config.ALIVE_EMOJI, is_sudo, Config.ALIVE_EMOJI, Config.BOY_OR_GIRL)
             alv_btn = [
                 [Button.url(f"{LEGEND_USER}", f"tg://openmessage?user_id={Its_LegendBoy}")],
-                [Button.url("My Channel", f"https://t.me/{my_channel}"), 
-                Button.url("My Group", f"https://t.me/{my_group}")],
+                [Button.url("💞My Channel💞", f"https://t.me/{my_channel}"), 
+                Button.url("⚡My Group⚡", f"https://t.me/{my_group}")],
             ]
             if ALV_PIC and ALV_PIC.endswith((".jpg", ".png")):
                 result = builder.photo(
@@ -208,6 +208,7 @@ if Config.BOT_USERNAME is not None and tgbot is not None:
                 buttons=[
                     [Button.url("♥️ 𝚁𝚎𝚙𝚘 ♥", "https://github.com/LEGEND-OS/LEGENDBOT")],
                     [Button.url("♦️ Deploy ♦️", "https://dashboard.heroku.com/new?button-url=https%3A%2F%2Fgithub.com%2FLEGEND-OS%2FLEGENDBOT&template=https%3A%2F%2Fgithub.com%2FLEGEND-OS%2FLEGENDBOT")],
+                    [Button.url("🔥 Group 🔥", "https://t.me/Legend_Userbot")],
                 ],
             )
 
@@ -298,10 +299,8 @@ if Config.BOT_USERNAME is not None and tgbot is not None:
             reply_pop_up_alert = "This is for other users!"
             await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
         else:
-            await event.edit(
-                f"🥴 **Nikal lawde\nPehli fursat me nikal**"
-            )
-            await event.client(functions.contacts.BlockRequest(event.query.user_id))
+            await event.edit(f"🥴 **Go away from here\nYou Are Blocked Now**")
+            await bot(functions.contacts.BlockRequest(event.query.user_id))
             target = await event.client(GetFullUserRequest(event.query.user_id))
             ok = event.query.user_id
             first_name = html.escape(target.user.first_name)
@@ -355,7 +354,7 @@ if Config.BOT_USERNAME is not None and tgbot is not None:
     @tgbot.on(callbackquery.CallbackQuery(data=compile(b"close")))
     async def on_plug_in_callback_query_handler(event):
         if event.query.user_id == bot.uid or event.query.user_id in Config.SUDO_USERS:
-            veriler = custom.Button.inline(f"{legend_emoji1} Re-Open Menu {legend_emoji2}", data="reopen")
+            veriler = custom.Button.inline(f"{legend_emoji2} Open Menu {legend_emoji1}", data="reopen")
             await event.edit(f"**⚜️ Lêɠêɳ̃dẞø† Mêñû Prõvîdêr háš běěn čłøšĕd by {legend_mention} ⚜️**\n\n**Bot Of :**  {legend_mention}\n\n            [©️Lêɠêɳ̃dẞø†]({chnl_link})", buttons=veriler, link_preview=False)
         else:
             reply_pop_up_alert = "κγα υиgℓι καя янє нο мєяє ϐοτ ραя αgαя ϲнαнιγє τοн κнυ∂ κα ϐαиα ℓο иα. Aα נατє нο υиgℓι καяиє мєяє ϐοτ ρє.   ©Lêɠêɳ̃dẞø†"
@@ -447,7 +446,7 @@ if Config.BOT_USERNAME is not None and tgbot is not None:
             await event.edit(
                 result,
                 buttons=[
-                    custom.Button.inline(f"{legend_emoji1} Return {legend_emoji2}", data=f"Information[{page}]({cmd})")
+                    custom.Button.inline(f"{legend_emoji2} Return {legend_emoji1}", data=f"Information[{page}]({cmd})")
                 ],
                 link_preview=False,
             )
