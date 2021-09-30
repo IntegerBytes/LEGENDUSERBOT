@@ -81,7 +81,7 @@ class CmdHelp:
             else:
                 if not self.WARNING == "":
                     result += f"**⚠️ Warning :** {self.WARNING}\n"
-                result += f"**🔸️ Type:** {self.TYPE}\n"
+                result += f"**⚡ Type:** {self.TYPE}\n"
                 result += f"**ℹ️ Info:** {self.INFO}\n"
                 
                             
