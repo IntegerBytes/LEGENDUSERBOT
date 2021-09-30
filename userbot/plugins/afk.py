@@ -189,4 +189,8 @@ async def _(event):
 
 CmdHelp("afk").add_command(
   'afk', '<reply to media>/<or type a reson>', 'Marks you AFK(Away from Keyboard) with reason(if given) also shows afk time. Media also supported.'
+).add_warning(
+    '18+'
+).add_type(
+    'Addons'
 ).add()
