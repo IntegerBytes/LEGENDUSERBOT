@@ -53,4 +53,6 @@ CmdHelp("adultzone").add_command(
   'boobs', None, 'Sends a random boobs pic'
 ).add_command(
   'butts', None, 'Sends a random Butt pic'
+).add_type(
+  'Addons'
 ).add()
