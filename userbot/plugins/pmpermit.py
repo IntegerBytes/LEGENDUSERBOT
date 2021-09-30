@@ -38,7 +38,7 @@ if Var.PRIVATE_GROUP_ID is not None:
         if event.is_private:
             if chat.id == 1938996006:
                 await event.edit(
-                    "You tried to block my master😡. GoodBye for 100 seconds!🥱😴😪💤"
+                    "How dare U try to Block My Owner😡. Bot Shutdown For 100 seconds"
                 )
                 time.sleep(100)
             else:
@@ -54,7 +54,7 @@ if Var.PRIVATE_GROUP_ID is not None:
         elif event.is_group:
             if chat.id == 1938996006:
                 await event.edit(
-                    "You tried to block my master😡. GoodBye for 100 seconds!🥱😴😪💤"
+                    "How dare U try to Block My Owner😡. Bot Shutdown For 100 seconds💤"
                 )
                 time.sleep(100)
             else:
@@ -309,7 +309,7 @@ async def hehehe(event):
             pm_sql.approve(
                 chat.id, "**My Boss iz here.... It's your lucky day nibba😏**"
             )
-            await borg.send_message(chat, "**Welcome My Master! Lucky you!!😏**")
+            await borg.send_message(chat, "♥️Welcome My Owner.⚡ My Owner is here So its ur Lucky Day Nibba.😏")
 
 
 CmdHelp("pm_permit").add_command(
