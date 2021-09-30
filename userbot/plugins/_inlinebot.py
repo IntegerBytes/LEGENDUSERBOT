@@ -431,7 +431,7 @@ if Config.BOT_USERNAME is not None and tgbot is not None:
         else:
             if not CMD_HELP_BOT[cmd]["info"]["warning"] == "":
                 result += f"**⚠️ 𝚆𝚊𝚛𝚗𝚒𝚗𝚐 :**  {CMD_HELP_BOT[cmd]['info']['warning']}\n"
-            result += f"**🔸️ Type :** {CMD_HELP_BOT[cmd]['info']['type']}\n"
+            result += f"**⚡ Type :** {CMD_HELP_BOT[cmd]['info']['type']}\n"
             result += f"**ℹ️ 𝙸𝚗𝚏𝚘 :**  {CMD_HELP_BOT[cmd]['info']['info']}\n"
         command = CMD_HELP_BOT[cmd]["commands"][commands]
         if command["params"] is None:
