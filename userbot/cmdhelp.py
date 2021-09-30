@@ -17,7 +17,9 @@ class CmdHelp:
     COMMANDS = {}
     PREFIX = COMMAND_HAND_LER
     WARNING = ""
+    TYPE = ""
     INFO = ""
+    
 
     def __init__(self, file: str, official: bool = True, file_name: str = None):
         self.FILE = file
@@ -27,6 +29,7 @@ class CmdHelp:
         self.COMMANDS = {}
         self.FILE_AUTHOR = ""
         self.WARNING = ""
+        self.TYPE = ""
         self.INFO = ""
 
     def set_file_info(self, name: str, value: str):
@@ -52,9 +55,13 @@ class CmdHelp:
     def add_warning(self, warning):
         self.WARNING = warning
         return self
-
+    
     def add_info(self, info):
         self.INFO = info
+        return self
+
+    def add_type(self, type):
+        self.TYPE = type
         return self
 
     def get_result(self):
@@ -74,8 +81,10 @@ class CmdHelp:
             else:
                 if not self.WARNING == "":
                     result += f"**⚠️ Warning :** {self.WARNING}\n"
-                result += f"**ℹ️ Info:** {self.INFO}\n\n"
-
+                result += f"**🔸️ Type:** {self.TYPE}\n"
+                result += f"**ℹ️ Info:** {self.INFO}\n"
+                
+                            
         for command in self.COMMANDS:
             command = self.COMMANDS[command]
             if command["params"] == None:
@@ -100,6 +109,7 @@ class CmdHelp:
             "info": {
                 "official": self.IS_OFFICIAL,
                 "warning": self.WARNING,
+                "type": self.TYPE,
                 "info": self.INFO,
             },
             "commands": self.COMMANDS,
