@@ -88,6 +88,6 @@ CmdHelp("about").add_command(
     'abot', None , 'Use and See'
 ).add_info(
   "Randoms Pic Alive"
-).add_warning(
+).add_type(
   "Official"
 ).add()
