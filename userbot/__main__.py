@@ -71,10 +71,10 @@ async def assistant():
         path1 = Path(f.name)
         shortname = path1.stem
         start_assistant(shortname.replace(".py", ""))
-ADDONS = os.environ.get ("ADDONS", "True")
-addon = os.environ.get("ADDONS") or False                
+
+addon = os.environ.get("BOY_OR_GIRL") or False                
 async def addons():
-    if addon == "True":
+    if addon == "Boy":
         extra_repo = "https://github.com/LEGEND-OS/LegendBot-Addons"
         try:
             os.system(f"git clone {extra_repo}")  
