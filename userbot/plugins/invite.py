@@ -58,40 +58,49 @@ def user_full_name(user):
     full_name = " ".join(names)
     return full_name
 
-@bot.on(admin_cmd(pattern=r"inviteall ?(.*)"))
-@bot.on(sudo_cmd(pattern=r"inviteall ?(.*)", allow_sudo=True))
+
+@bot.on(admin_cmd(pattern="inviteall ?(.*)"))
+@bot.on(sudo_cmd(pattern="inviteall ?(.*)", allow_sudo=True))
 async def get_users(event):
     legen_ = event.text[11:]
-    legend_chat = legen_.lower()
+    legend_chat =legen_.lower
     restricted = ["@Legend_Userbot", "@Its_LegendBot"]
-    legend = await eor(event, f"__Inviting members from__ {legen_}")
+    legend = await eor(event, f"**Inviting members from** {legen_}")
     if legend_chat in restricted:
         await event.edit("You can't Invite Members from there.")
         await bot.send_message(-1001344140905, "Sorry for inviting members from here.")
         return
-    boy = await get_chatinfo(event)
+    sender = await event.get_sender()
+    me = await event.client.get_me()
+    if not sender.id == me.id:
+        LEGEND = await edit_or_reply(event, "`processing...`")
+    else:
+        LEGEND = await edit_or_reply(event, "`processing...`")
+    legend = await get_chatinfo(event)
     chat = await event.get_chat()
     if event.is_private:
-        return await event.edit("`Sorry, Cant add users here`")
+        return await LEGEND.edit("`Sorry, Cant add users here`")
     s = 0
     f = 0
     error = "None"
-    await event.edit("**INVITING USERS !!**")
-    async for user in bot.iter_participants(boy.full_chat.id):
+
+    await LEGEND.edit("**⚜️[Ͳєямιиαℓ Տτατυѕ](https://t.me/Legend_Userbot)**\n\n`🔸Inviting Users.......`")
+    async for user in event.client.iter_participants(legend.full_chat.id):
         try:
             await bot(
                 InviteToChannelRequest(channel=chat, users=[user.id])
             )
             s = s + 1
-            await event.edit(
-                f"**TERMINAL**\n***INVITING MEMBERS**\n\n**Invited :**  `{s}` users \n**Failed to Invite :**  `{f}` users.\n\n**×Error :**  `{error}`"
+            await LEGEND.edit(
+                f"🤟**Inviting Users👇 **\n\n**⚜Invited :**  `{s}` users \n**🔰Failed to Invite :**  `{f}` users.\n\n**×Error :**  `{error}`"
             )
         except Exception as e:
             error = str(e)
             f = f + 1
-    return await event.edit(
-        f"**INVITING FINISHED** \n\n**Invited :**  `{s}` users \n**Failed :**  `{f}` users."
+    return await LEGEND.edit(
+        f"[τєямנиαℓ ƒιиιѕнє∂](https://t.me/Legend_Userbot) \n\n🔸 Sυϲϲєѕѕƒυℓℓγ ιиνιτє∂ `{s}` ρєορℓє \n⚠️ ƒαιℓє∂ το ιиνιτє `{f}` ρєορℓє"
     )
+
 
 
 
