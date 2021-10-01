@@ -85,9 +85,5 @@ async def amireallyalive(yes):
     
     
 CmdHelp("about").add_command(
-    'abot', None , 'Use and See'
-).add_info(
-  "Randoms Pic Alive"
-).add_type(
-  "Official"
+    'abot', None , 'BEST alive command'
 ).add()
