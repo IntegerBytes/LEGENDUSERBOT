@@ -1,7 +1,6 @@
 from userbot import bot
 from sys import argv
 import sys
-from telethon.errors.rpcerrorlist import PhoneNumberInvalidError
 import os
 from telethon import TelegramClient
 from var import Var
@@ -37,19 +36,21 @@ if len(sys.argv) not in (1, 3, 4):
     bot.disconnect()
 else:
     bot.tgbot = None
-    if Var.BOT_USERNAME is not None:
-        print("Initiating Inline Bot")
-        bot.tgbot = TelegramClient(
-            "BOT_TOKEN",
-            api_id=Var.APP_ID,
-            api_hash=Var.API_HASH
-        ).start(bot_token=Var.BOT_TOKEN)
-        print("Initialisation finished with no errors")
-        print("Starting Userbot")
-        bot.loop.run_until_complete(add_bot(Var.BOT_USERNAME))
-        print("Startup Completed")
-    else:
-        bot.start()
+    try:
+        if Var.BOT_USERNAME is not None:
+            LOGS.info("Checking Telegram Bot Username...")
+            bot.tgbot = TelegramClient(
+                "BOT_TOKEN", api_id=Var.APP_ID, api_hash=Var.API_HASH
+            ).start(bot_token=Var.BOT_TOKEN)
+            LOGS.info("Checking Completed. Proceeding to next step...")
+            LOGS.info("🔰 Starting LegendBot 🔰")
+            bot.loop.run_until_complete(add_bot(Config.BOT_USERNAME))
+            LOGS.info("🔥 LegendBot Startup Completed 🔥")
+        else:
+            bot.start()
+    except Exception as e:
+        LOGS.error(f"BOT_TOKEN - {str(e)}")
+        sys.exit()
 print("Loading Modules / Plugins")
 
 
