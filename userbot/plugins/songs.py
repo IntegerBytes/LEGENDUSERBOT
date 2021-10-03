@@ -39,7 +39,6 @@ from LEGENDBOT.utils import admin_cmd, sudo_cmd, edit_or_reply, progress
 from userbot.cmdhelp import CmdHelp
 from userbot.helpers.functions import deEmojify
 
-from ..helpers.logger import logging
 from userbot.utils import delete_LEGEND, edit_or_reply
 
 @bot.on(admin_cmd(pattern="lyrics(?: |$)(.*)", outgoing=True))
