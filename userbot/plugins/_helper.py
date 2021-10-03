@@ -1,18 +1,15 @@
-from userbot.Config import Config
 import asyncio
-
 import requests
 from telethon import functions
+from telethon.errors import ChatSendInlineForbiddenError as noin
+from telethon.errors.rpcerrorlist import BotMethodInvalidError as dedbot, BotInlineDisabledError as noinline, YouBlockedUserError
+from userbot.Config import Config
 from . import *
 from userbot import ALIVE_NAME, CMD_LIST, SUDO_LIST
 from LEGENDBOT.utils import admin_cmd, edit_or_reply, sudo_cmd
 
 perf = "[ †hê Lêɠêɳ̃dẞø† ]"
 
-import requests
-from telethon import functions
-from telethon.errors import ChatSendInlineForbiddenError as noin
-from telethon.errors.rpcerrorlist import BotMethodInvalidError as dedbot, BotInlineDisabledError as noinline, YouBlockedUserError
 
 
 msg = f"""
