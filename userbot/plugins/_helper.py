@@ -75,10 +75,10 @@ async def _(event):
 async def yardim(event):
     if event.fwd_from:
         return
-    tgbotusername = Config.TG_BOT_USER_NAME_BF_HER
+    tgbotusername = botname
     input_str = event.pattern_match.group(1)
-    if tgbotusername is not None or W2H_input == "text":
-        results = await event.client.inline_query(tgbotusername, "@W2H_Userbot")
+    if tgbotusername is not None or LEGEND_input == "text":
+        results = await event.client.inline_query(tgbotusername, "legendbot_help")
         await results[0].click(
             event.chat_id, reply_to=event.reply_to_msg_id, hide_via=True
         )
