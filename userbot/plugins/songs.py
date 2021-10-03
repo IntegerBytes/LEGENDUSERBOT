@@ -144,25 +144,25 @@ async def _(event):
         with YoutubeDL(song_opts) as somg:
             hell_data = somg.extract_info(url)
     except DownloadError as DE:
-        return await eod(hell, f"`{str(DE)}`")
+        return await eor(hell, f"`{str(DE)}`")
     except ContentTooShortError:
-        return await eod(hell, "`The download content was too short.`")
+        return await eor(hell, "`The download content was too short.`")
     except GeoRestrictedError:
-        return await eod(hell, "`Video is not available from your geographic location due to geographic restrictions imposed by a website.`")
+        return await eor(hell, "`Video is not available from your geographic location due to geographic restrictions imposed by a website.`")
     except MaxDownloadsReached:
-        return await eod(hell, "`Max-downloads limit has been reached.`")
+        return await eor(hell, "`Max-downloads limit has been reached.`")
     except PostProcessingError:
-        return await eod(hell, "`There was an error during post processing.`")
+        return await eor(hell, "`There was an error during post processing.`")
     except UnavailableVideoError:
-        return await eod(hell, "`Media is not available in the requested format.`")
+        return await eor(hell, "`Media is not available in the requested format.`")
     except XAttrMetadataError as XAME:
-        return await eod(hell, f"`{XAME.code}: {XAME.msg}\n{XAME.reason}`")
+        return await eor(hell, f"`{XAME.code}: {XAME.msg}\n{XAME.reason}`")
     except ExtractorError:
-        return await eod(hell, "`There was an error during info extraction.`")
+        return await eor(hell, "`There was an error during info extraction.`")
     except Exception as e:
-        return await eod(hell, f"{str(type(e)): {str(e)}}")
+        return await eor(hell, f"{str(type(e)): {str(e)}}")
     c_time = time.time()
-    await .edit(f"**🎶 Preparing to upload song 🎶 :** \n\n{hell_data['title']} \n**By :** {hell_data['uploader']}")
+    await event.edit(f"**🎶 Preparing to upload song 🎶 :** \n\n{hell_data['title']} \n**By :** {hell_data['uploader']}")
     await event.client.send_file(
         event.chat_id,
         f"{hell_data['id']}.mp3",
