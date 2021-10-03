@@ -11,7 +11,7 @@ from youtubesearchpython import Video
 import json
 import os
 import time
-
+import requests
 from telethon.errors.rpcerrorlist import YouBlockedUserError
 from telethon.tl.types import DocumentAttributeAudio
 from youtube_dl import YoutubeDL
