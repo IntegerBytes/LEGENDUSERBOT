@@ -4,7 +4,6 @@ import io
 import os
 from pathlib import Path
 from . import *
-from ShazamAPI import Shazam
 from telethon import types
 from telethon.tl.functions.messages import ImportChatInviteRequest as Get
 from validators.url import url
