@@ -81,7 +81,7 @@ async def yardim(event):
         )
         await event.delete()
     else:
-        await edit_or_reply(event.chat_id, Check Bot Token And Bot)
+        await edit_or_reply(event.chat_id, "Check Bot Token And Bot")
     
         if input_str in CMD_LIST:
           string = "Commands found in {}:\n".format(input_str)
