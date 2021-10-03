@@ -107,8 +107,8 @@ async def legendbott(event):
     else:
         string = ""
         sayfa = [
-            sorted(list(CMD_HELP))[i : i + 5]
-            for i in range(0, len(sorted(list(CMD_HELP))), 5)
+            sorted(list(CMD_HELP))[i : i + 1]
+            for i in range(0, len(sorted(list(CMD_HELP))), 1)
         ]
 
         for i in sayfa:
