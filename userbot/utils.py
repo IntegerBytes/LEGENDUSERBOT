@@ -1,3 +1,4 @@
+
 import asyncio
 import datetime
 import importlib
@@ -167,6 +168,8 @@ def load_module(shortname):
         sys.modules["userbot.plugins." + shortname] = mod
         LOGS.info("Lêɠêɳ̃dẞø† ~ " + shortname)
 
+
+# Thanks To @IntegerBytes Who Helped @Hobby-Dev-0 and @LEGEND-OS in Adding Addons        
 def load_addons(shortname):
     if shortname.startswith("__"):
         pass
